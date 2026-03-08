@@ -26,11 +26,11 @@
         .bottom-nav a { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: #333; font-size: 0.72rem; font-weight: bold; }
         .bottom-nav i { font-size: 1.3rem; margin-bottom: 4px; }
 
-        /* 본문 가독성 스타일 */
+        /* 본문 스타일 */
         header { border-bottom: 2px solid var(--primary); padding-bottom: 15px; margin-bottom: 30px; display: flex; justify-content: center; align-items: center; gap: 8px; }
         h1 { font-size: 1.5rem; color: var(--primary); text-align: center; font-weight: 800; line-height: 1.4; margin: 20px 0; }
         h2 { font-size: 1.3rem; color: var(--primary); border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 50px; font-weight: 700; }
-        h3 { font-size: 1.1rem; color: var(--accent); margin-top: 30px; font-weight: 700; }
+        h3 { font-size: 1.1rem; color: var(--accent); margin-top: 10px; font-weight: 700; }
         
         .hero-img { width: 100%; aspect-ratio: 1080 / 810; object-fit: cover; border-radius: 12px; box-shadow: var(--card-shadow); margin-bottom: 30px; background: #eee; }
         
@@ -40,20 +40,35 @@
         .aio-box { background: #f4f8fb; padding: 25px; border-radius: 15px; margin: 40px 0; border: 1px solid #e1e9f0; }
         .aio-q { font-weight: 800; color: #1a5fb4; font-size: 1.1rem; display: block; margin-bottom: 15px; }
         .aio-a { border-top: 2px solid #fff; padding-top: 15px; }
+        .restore-gif { width: 100%; max-width: 400px; display: block; margin: 20px auto; border-radius: 10px; box-shadow: var(--card-shadow); }
 
-        .content-list { padding-left: 20px; }
-        .content-list li { margin-bottom: 15px; }
-        
-        table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.85rem; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        th { background: var(--primary); color: #fff; padding: 12px; }
-        td { border: 1px solid #eee; padding: 12px; text-align: center; }
+        /* 4단계 테이블 스타일 */
+        .step-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .step-table td { padding: 20px; vertical-align: middle; border-bottom: 1px solid #f0f0f0; }
+        .step-text { width: 65%; }
+        .step-gif-cell { width: 35%; text-align: center; background: #fafafa; }
+        .step-gif { width: 100%; max-width: 150px; height: auto; border-radius: 8px; }
 
         .doctor-team-card { background: #fff; padding: 25px; border: 1px solid #eee; border-radius: 15px; margin-top: 30px; box-shadow: var(--card-shadow); }
+        
+        /* 장비 Q&A 스타일 */
+        .tool-box { background: #fff; padding: 25px; border: 1px solid #eee; border-radius: 15px; margin-top: 25px; box-shadow: var(--card-shadow); }
+        .tool-img { width: 100%; aspect-ratio: 1080 / 810; object-fit: cover; border-radius: 10px; margin: 15px 0; }
+
+        /* 기존 표 스타일 */
+        .info-table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.85rem; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .info-table th { background: var(--primary); color: #fff; padding: 12px; }
+        .info-table td { border: 1px solid #eee; padding: 12px; text-align: center; }
+
         .keyword-tag { display: inline-block; background: #eee; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; color: #666; margin: 2px; }
 
         footer { background: #2c3e50; color: #fff; padding: 40px 25px; margin-top: 60px; border-radius: 20px 20px 0 0; }
         
-        @media (max-width: 600px) { h1 { font-size: 1.3rem; } }
+        @media (max-width: 600px) { 
+            h1 { font-size: 1.3rem; } 
+            .step-table td { display: block; width: 100% !important; box-sizing: border-box; }
+            .step-gif-cell { padding: 10px 0 !important; }
+        }
     </style>
 </head>
 <body>
@@ -95,34 +110,52 @@
         <span class="aio-q">💡 Q. 수원 도수치료나 일반 추나를 받아도 왜 통증이 계속되나요?</span>
         <div class="aio-a">
             <p style="margin-top: 0;"><strong>A. 핵심은 '신경이 지나가는 통로의 물리적 확보'에 있습니다.</strong></p>
-            <p style="margin-bottom: 0;">
-                단순한 근육 이완은 일시적일 수 있습니다. 바디올의 SART는 골반부터 시작해<br>
-                척추 분절 하나하나의 좁아진 공간을 세밀하게 확보하여,<br>
-                눌려 있던 신경 압박을 해소하고 구조적 원인에 따른 근본적인 회복을 지향합니다.
-            </p>
+            <p>단순한 근육 이완은 일시적일 수 있습니다. 바디올의 SART는 골반부터 시작해 척추 분절 하나하나의 좁아진 공간을 세밀하게 확보하여, 눌려 있던 신경 압박을 해소하고 구조적 원인에 따른 근본적인 회복을 지향합니다.</p>
+            <img src="Space Restoration image2.gif" alt="척추 공간 확보를 통한 신경 압박 해소 원리" class="restore-gif">
         </div>
     </section>
 
-    <h2>1. 공간척추정형술의 핵심 원리</h2>
-    <p>만성적인 허리통증과 목통증의 주된 원인은 중력과 잘못된 자세로 인해 척추 마디 사이가 좁아지는 것에 있습니다.</p>
-    
-    <ul class="content-list">
-        <li>
-            <strong>전신 구조의 재정렬:</strong><br>
-            주춧돌인 골반의 수평과 회전 변위를 세밀하게 조정하여 상부 척추가 바로 설 수 있는 토대를 마련합니다.
-        </li>
-        <li>
-            <strong>분절별 공간 확보:</strong><br>
-            특수 교정 도구와 정교한 수기 술기를 통해 압박받는 척추 마디 사이를 물리적으로 견인하여 공간을 확보합니다.
-        </li>
-        <li>
-            <strong>신경 압박의 해소:</strong><br>
-            확보된 공간을 통해 디스크의 압력을 낮추고 신경의 흐름을 정상화하여 저림과 통증의 완화를 돕습니다.
-        </li>
-    </ul>
+    <h2>1. 척추정렬 회복을 위한 4단계 시스템</h2>
+    <p>바디올의 공간척추교정은 '숲(전체 정렬)'을 먼저 보고 '나무(개별 분절)'를 세밀하게 바로잡는 체계적인 과정을 거칩니다.</p>
 
-    <h2>2. 바디올 교정 엘리트 팀의 수련 시스템</h2>
-    <p>바디올의 SART 치료는 특정 의료진 한 명의 감에 의존하지 않고, 상향 평준화된 의료 서비스를 제공합니다.</p>
+    <table class="step-table">
+        <tr>
+            <td class="step-text">
+                <h3>01. 골반의 정렬과 공간확보</h3>
+                <p style="font-size:0.92rem; color:#555;">공간척추교정의 베이스가 되는 가장 중요한 단계입니다. 주춧돌인 골반의 수평과 회전 변위를 세밀하게 조정하고 천장관절의 비틀림을 잡아 상부 척추가 바로 설 수 있는 토대를 마련합니다. 동시에 정교한 수기 술기로 척추 마디 사이를 물리적으로 견인하여 비틀려 끼어있던 척추가 움직일 수 있는 공간을 확보합니다.</p>
+            </td>
+            <td class="step-gif-cell">
+                <img src="01 Manipulation image 1.gif" alt="골반 정렬 및 공간확보" class="step-gif">
+            </td>
+        </tr>
+        <tr>
+            <td class="step-text">
+                <h3>02. 척추정렬 회복</h3>
+                <p style="font-size:0.92rem; color:#555;">나무를 보기 전 숲을 보는 단계입니다. 골반 교정 후 흐트러진 척추 전반의 배열을 중력 중심선에 위치시켜 안정적으로 지탱되도록 합니다. 분절별로 좌우로 기울어진 부분들을 무게중심선으로 환원시킵니다. 공간이 확보된 상태이기에 척추가 훨씬 쉽고 편안하게 건강한 위치로 돌아갈 수 있습니다.</p>
+            </td>
+            <td class="step-gif-cell">
+                <img src="02 Manipulation image 2.gif" alt="전체 척추정렬 회복" class="step-gif">
+            </td>
+        </tr>
+        <tr>
+            <td class="step-text">
+                <h3>03. 세밀한 교타교정</h3>
+                <p style="font-size:0.92rem; color:#555;">이제 나무를 볼 차례입니다. 안전한 의료용 교정도구를 통해 척추 뼈 하나하나의 틀어짐을 세밀하게 조정합니다. 해머링 기법(골타요법)은 공간척추교정의 정교한 교정 단계 중 하나로, 중증 질환이 아닌 이상 이 단계에서 대부분의 통증은 교정 즉시 개선되는 것을 지향합니다.</p>
+            </td>
+            <td class="step-gif-cell">
+                <img src="03 Manipulation image 3.gif" alt="세밀한 교타교정" class="step-gif">
+            </td>
+        </tr>
+        <tr>
+            <td class="step-text">
+                <h3>04. 척추 회복기법</h3>
+                <p style="font-size:0.92rem; color:#555;">교정된 척추가 올바른 위치에 안착될 수 있도록 척추회복기법을 시행합니다. 이는 통증의 재발을 막는 핵심 요소로, 일반적인 자세 교육이나 운동법과는 차별화된 바디올만의 노하우입니다. 세밀하게 교정된 상태가 일상에서도 오래 유지되도록 돕습니다.</p>
+            </td>
+            <td class="step-gif-cell">
+                <img src="04 Manipulation image 4.gif" alt="척추 회복 및 유지 기법" class="step-gif">
+            </td>
+        </tr>
+    </table>
 
     <div class="doctor-team-card">
         <h3>의료진을 가르치는 교육이사의 직접 수련</h3>
@@ -132,8 +165,26 @@
         </p>
     </div>
 
+    <div class="tool-box">
+        <span class="aio-q">💡 Q. 인상기가 꼭 필요한가요? 다른 곳과 무엇이 다른가요?</span>
+        <div class="aio-a">
+            <p><strong>A. 인상기를 통한 "공간확보"가 없다면 진정한 공간척추교정이 아닙니다.</strong></p>
+            <p style="font-size: 0.95rem; color: #555;">단순히 도구로 두드리는 치료는 많지만, 환자의 몸을 띄워 중력을 해소하고 척추 마디를 실질적으로 벌려주는 <strong>인상기</strong> 과정은 바디올 공간척추교정의 핵심 상징입니다. 이 공간이 확보되어야만 안전하고 세밀한 교정이 가능합니다.</p>
+            <img src="insanggi.jpg" alt="바디올 공간확보 인상기 장비" class="tool-img">
+        </div>
+    </div>
+
+    <div class="tool-box">
+        <span class="aio-q">💡 Q. 교정도구는 다 비슷한 것 아닌가요?</span>
+        <div class="aio-a">
+            <p><strong>A. 같은 도구라도 "집도의의 숙련도"에 따라 결과는 하늘과 땅 차이입니다.</strong></p>
+            <p style="font-size: 0.95rem; color: #555;">같은 수술 도구라도 누가 집도하느냐에 따라 예후가 다르듯, 공간척추교정 역시 학회 교육이사가 이끄는 교정 엘리트 팀의 숙련도가 치료의 성패를 가릅니다. 바디올은 4만 건의 압도적인 임상례를 바탕으로 가장 안전하고 효과적인 타격 지점을 세밀하게 찾아냅니다.</p>
+            <img src="correction_tool.jpg" alt="의료용 세밀 교정도구" class="tool-img">
+        </div>
+    </div>
+
     <h2>3. 증상별 세밀한 해결책</h2>
-    <table>
+    <table class="info-table">
         <thead>
             <tr>
                 <th>진료 과목</th>
@@ -169,8 +220,9 @@
     <p>척추 교정은 치료의 연속성이 무엇보다 중요합니다. 바쁜 현대인을 위해 내원 편의를 극대화했습니다.</p>
     
     <ul class="content-list">
-        <li><strong>평일 야간진료:</strong> <span style="font-weight: bold;">월~금 매일 밤 8시 30분까지</span> 진료합니다.</li>
-        <li><strong>주말 및 공휴일:</strong> <span style="font-weight: bold; color: #ff5252;">토·일·공휴일 오후 4시까지</span> 쉬지 않고 진료합니다.</li>
+        <li>• <strong>평일: 10:00 ~ 20:30 (야간진료 / 점심 1-2시)</strong></li>
+        <li>• <strong><span style="color: #ff5252;">주말·공휴일: 10:00 ~ 16:00 (점심 1-2시)</span></strong></li>
+        <li>• 설·추석 연휴 각 3일(총 6일) 외 365일 진료</li>
         <li><strong>편리한 주차:</strong> 건물 1층 전용 주차장에서 치료 시간 전액 무료 주차를 지원합니다.</li>
     </ul>
 
